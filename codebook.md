@@ -15,7 +15,6 @@ Here is a direct link to the data set:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 #Usage
-
 	1. Extract the dataset into a directory containing run_analysis.R
 	2. Execute the run_analysis function from run_analysis.R
 	3. run_analysis() will:

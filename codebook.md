@@ -1,6 +1,6 @@
-###Codebook
+##Codebook
 
-##Getting and Cleaning Data Course Project
+###Getting and Cleaning Data Course Project
 
 #Dataset
 
@@ -26,16 +26,16 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 		v. output the mean value of each measurement for every subject and activity to meandata.txt
 
 #Required R Packages
-	**data.table and reshape2 are required to execute run_analysis.R**
+	__data.table and reshape2 are required to execute run_analysis.R__
 
 #Variables
 	
-	**New Variables:**
+	__New Variables:__
 
 	Subject - subject id of the subject performing the activity
 	Activity - activity the subject is performing
 
-	**Variables maintained from the original dataset:* 
+	__Variables maintained from the original dataset:__ 
 	
 	tBodyAcc-mean()-X
 	tBodyAcc-mean()-Y

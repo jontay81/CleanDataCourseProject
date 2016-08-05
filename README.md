@@ -12,9 +12,7 @@
       
       iii. appropriately label the data set and subject  activities with descriptive names
       
-      iv. output the combined dataset to tidydata.txt
-      
-      v. output the mean value of each measurement for every subject and activity to meandata.txt
+     iv. output the mean value of each measurement for every subject and activity to meandata.txt
 
 ##Required R Packages
 

@@ -25,16 +25,16 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 		v. output the mean value of each measurement for every subject and activity to meandata.txt
 
 #Required R Packages
-	__data.table and reshape2 are required to execute run_analysis.R__
+	data.table and reshape2 are required to execute run_analysis.R
 
 #Variables
 	
-	__New Variables:__
+	New Variables:
 
 	Subject - subject id of the subject performing the activity
 	Activity - activity the subject is performing
 
-	__Variables maintained from the original dataset:__ 
+	Variables maintained from the original dataset:
 	
 	tBodyAcc-mean()-X
 	tBodyAcc-mean()-Y

@@ -49,11 +49,21 @@ run_analysis <- function(){
     yTest[,1] <-  activityLabels[yTest[,1],2]
     yTrain[,1] <-  activityLabels[yTrain[,1],2]
     
+    #add column labels to yTest and yTrain
     names(yTest) <- "Activity"
     names(yTrain) <- "Activity"
     
+    #add column labels to subjectTest and subjectTrain
     names(subjectTest) <- "Subject #"
     names(subjectTrain) <- "Subject #"
+    
+    
+    #creates boolean vector of desired mean and std dev features
+    summaryFeatures <- grepl("mean|std", features[,2])
+    
+    #subsets xTest and xTrain tables to only have the desired features
+    xTest <- xTest[,summaryFeatures]
+    xTrain <- xTrain[,summaryFeatures]
     
     
     }

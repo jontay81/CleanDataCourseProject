@@ -15,6 +15,10 @@ run_analysis <- function(){
         #import files
         #extract mean and std dev for each measurement
     
+    #import data.table and reshape2 libraries
+    library(data.table)
+    library(reshape2)
+    
     #import files
     
     #6x2 activity labels [,1]=number, [,2]=activity
@@ -38,7 +42,7 @@ run_analysis <- function(){
     
     #2947x1 
     subjectTest  <- read.table("./UCI HAR Dataset/test/subject_test.txt")
-    subjectTrain  <- read.table("./UCI HAR Dataset/test/subject_train.txt")
+    subjectTrain  <- read.table("./UCI HAR Dataset/train/subject_train.txt")
     
     
     ##Rename columns
@@ -54,8 +58,8 @@ run_analysis <- function(){
     names(yTrain) <- "Activity"
     
     #add column labels to subjectTest and subjectTrain
-    names(subjectTest) <- "Subject #"
-    names(subjectTrain) <- "Subject #"
+    names(subjectTest) <- "Subject"
+    names(subjectTrain) <- "Subject"
     
     
     #creates boolean vector of desired mean and std dev features
@@ -65,5 +69,26 @@ run_analysis <- function(){
     xTest <- xTest[,summaryFeatures]
     xTrain <- xTrain[,summaryFeatures]
     
+    #convert subject data.frame to data.table
+    subjectTest <- as.data.table(subjectTest)
+    subjectTrain <- as.data.table(subjectTrain)
+    
+    #bind subject, activity, and sensor data
+    testData <- cbind(subjectTest, yTest, xTest)
+    trainData <- cbind(subjectTrain, yTrain, xTrain)
+    
+    #bind test data and training data to make one data table
+    fullData <- rbind(testData, trainData)
+    
+    #reshapes data table to be tidy and writes it to tidydata.txt
+    tidyData  <- melt(fullData, id.var=1:2, measure.vars=3:81, variable.name="Measurement", value.name = "Value")
+    
+    write.table(tidyData, file = "./tidydata.txt")
+    
+    #converts data to show the mean of the values for each subject and activity
+    #using dcast and writes it to meandata.txt
+    meanData <- dcast(tidyData, Subject + Activity ~ Measurement, fun.aggregate=mean)
+    
+    write.table(meanData, file = "./meandata.txt")
     
     }
